@@ -8,7 +8,7 @@ import (
 
 const (
 	defaultHandlerName = "HostnameHandler"
-	defaultHeaderKey = "X-Hostname"
+	defaultHeaderKey   = "X-Hostname"
 )
 
 // HostnameHandler is that add X-Hostname header in a Response.
