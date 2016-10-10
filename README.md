@@ -15,7 +15,7 @@ func HeyHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/hey", hostname.HostnameHandler(
+	http.HandleFunc("/hey", hostname.HostnameHeaderHandler(
 		http.HandlerFunc(HeyHandler),
 	))
 	http.ListenAndServe(":8001", nil)
