@@ -1,0 +1,11 @@
+language: go
+
+go:
+    # 1.5 is "undefined: http.MethodGet"
+    # - 1.5
+    - 1.6
+    - 1.7
+    - tip
+
+script:
+    - go test -cover -v ./...
