@@ -12,7 +12,7 @@ const (
 )
 
 // HostnameHeaderHandler is that add X-Hostname header in a Response.
-func HostnameHeaderHandler(f http.Handler) http.HandlerFunc {
+func HostnameHeaderHandler(f http.Handler) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		hostname, err := os.Hostname()
 		if err != nil {
@@ -21,5 +21,5 @@ func HostnameHeaderHandler(f http.Handler) http.HandlerFunc {
 		w.Header().Set(defaultHeaderKey, hostname)
 		f.ServeHTTP(w, r)
 	}
-	return fn
+	return http.HandlerFunc(fn)
 }
