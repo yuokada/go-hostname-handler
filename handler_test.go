@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-var fn http.HandlerFunc = func(w http.ResponseWriter, r *http.Request) {
+var fn = func(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "hey world!")
 	return
 }
@@ -25,7 +25,7 @@ func TestHostnameHandler(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Error by http.Get(). %v", err)
 	}
-	resHeader := r.Header.Get(DefaultHeaderKey)
+	resHeader := r.Header.Get(defaultHeaderKey)
 	expect, _ := os.Hostname()
 	if resHeader != expect {
 		t.Errorf("Faile. (response, expect) = (%s, %s)\n", resHeader, expect)
