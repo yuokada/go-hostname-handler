@@ -15,7 +15,7 @@ var fn = func(w http.ResponseWriter, r *http.Request) {
 
 func TestHostnameHandler(t *testing.T) {
 	srv := httptest.NewServer(
-		HostnameHandler(http.HandlerFunc(fn)),
+		HostnameHeaderHandler(http.HandlerFunc(fn)),
 	)
 	defer srv.Close()
 

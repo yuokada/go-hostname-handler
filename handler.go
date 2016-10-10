@@ -7,12 +7,12 @@ import (
 )
 
 const (
-	defaultHandlerName = "HostnameHandler"
+	defaultHandlerName = "HostnameHeaderHandler"
 	defaultHeaderKey   = "X-Hostname"
 )
 
-// HostnameHandler is that add X-Hostname header in a Response.
-func HostnameHandler(f http.Handler) http.HandlerFunc {
+// HostnameHeaderHandler is that add X-Hostname header in a Response.
+func HostnameHeaderHandler(f http.Handler) http.HandlerFunc {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		hostname, err := os.Hostname()
 		if err != nil {
