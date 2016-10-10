@@ -1,4 +1,4 @@
-package hostname_handler
+package hostname
 
 import (
 	"fmt"
